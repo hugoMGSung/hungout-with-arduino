@@ -12,3 +12,9 @@
 ## 초기테스트
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/tftlcdshield01.jpg" width="900" alt="3.5TFT">
+
+
+## Touch Test
+- 현재 실드는 터치동작 안함
+
+<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/tftlcdshield02.jpg" width="900" alt="3.5TFT 2">
