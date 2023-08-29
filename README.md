@@ -15,6 +15,8 @@
 	- Arduino IDE v2에서는 실패, 구버전 설치완료
 
 ## 3.5" TFT LCD Shield
+[TFT](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/TFT_LCD_Test)
+
 - 연결방법
 	- 아래 링크에서 압축다운로드
 		- [library](http://www.lcdwiki.com/res/Program/Arduino/3.5inch/UNO_8BIT_ILI9486_MAR3501_V1.1/3.5inch_Arduino_8BIT_Module_ILI9486_MAR3501_V1.1.zip)
