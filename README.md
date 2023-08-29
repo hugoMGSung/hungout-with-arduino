@@ -24,3 +24,8 @@
 	- 불꽃센서(오류 및 소켓없음)
 	
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/smarthome03.jpg" width="900" alt="스마트홈 진행완료">
+
+## Next
+- 블루투스 문제 해결
+- Wifi 실드연결
+- 모니터링 프로그램 제작 및 연동
