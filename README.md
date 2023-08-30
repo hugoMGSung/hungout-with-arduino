@@ -46,12 +46,13 @@
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield04.jpg" width="900" alt="하단설정">
 
-
+~~
 - 컴파일시 결과
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield01.jpg" width="600" alt="컴파일 결과">
 
 현재 A fatal esptool.py error occurred: Failed to connect to ESP8266: Timed out waiting for packet header 라는 오류로 업로드는 성공했지만 나머지는 실패
+~~
 
 ## P4S-348 Shield
 
