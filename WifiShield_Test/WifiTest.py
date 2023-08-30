@@ -1,22 +1,29 @@
 # -*-coding:utf-8 -*-
-
 import socket
+from _thread import *
 
-HOST = '192.168.0.208' #아두이노에 연결된 라즈베리파이의 ip
-PORT = 9090 #통신 포트
+HOST = '192.168.0.208'
+PORT = 9090
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #소켓 TCP 설정
+client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+client_socket.connect((HOST, PORT))
 
-sock.bind((HOST,PORT))
+# 서버로부터 메세지를 받는 메소드
+# 스레드로 구동 시켜, 메세지를 보내는 코드와 별개로 작동하도록 처리
+def recv_data(client_socket) :
+    while True :
+        data = client_socket.recv(1024)
 
-print("server wait......")
-
-sock.listen(1) #접속 기다림
-conn, addr = sock.accept() #접속 승인
-print(addr) #연결된 IP와 포트
+        print("recive : ",repr(data.decode()))
+start_new_thread(recv_data, (client_socket,))
+print ('>> Connect Server')
 
 while True:
-        data = conn.recv(1024) #데이터 수신
-        print(data)
+    message = input('')
+    if message == 'quit':
+        close_data = message
+        break
 
-conn.close()
+    client_socket.send(message.encode())
+
+client_socket.close()

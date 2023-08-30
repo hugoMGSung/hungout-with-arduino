@@ -24,7 +24,8 @@
 		
 	
 ## ESP13 Shield
-
+[참조경로](https://blog.naver.com/roboholic84/221139049600)
+[깃헙소스](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/WifiShield_Test)
 웹서버 실드
 
 - 연결방법 - 링크 추가보드 관리자 URL 추가
@@ -55,7 +56,7 @@
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield05.jpg" width="900" alt="하단설정">
 
 - 작업순서
-	- 기본 아두이노 소스 코딩
+	- 기본 아두이노 소스 코딩 (실드를 빼고 Arduino UNO로 설정 소스를 집어넣음) 
 	- 서버측 파이썬 코딩
 	
 ```console
@@ -72,6 +73,9 @@ Hello PHPoC Shield for Arduino!!
 ...
 
 ```
+
+파이썬에서 위의 값이 넘어옴
+
   
 - ~~컴파일시 결과~~
 
