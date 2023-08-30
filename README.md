@@ -26,7 +26,8 @@
 ## ESP13 Shield
 [참조경로](https://blog.naver.com/roboholic84/221139049600)
 [깃헙소스](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/WifiShield_Test)
-웹서버 실드
+
+***웹서버 실드***
 
 - 연결방법 - 링크 추가보드 관리자 URL 추가
 	- http://arduino.esp8266.com/stable/package_esp8266com_index.json
@@ -54,27 +55,6 @@
 - 쉴드의 스위치를 ON 해야 데이터가 넘어옴
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield05.jpg" width="900" alt="하단설정">
-
-- 작업순서
-	- 기본 아두이노 소스 코딩 (실드를 빼고 Arduino UNO로 설정 소스를 집어넣음) 
-	- 서버측 파이썬 코딩
-	
-```console
-기본소스를 업로드 한 뒤 와이파이 실드를 연결하고 설정된 대로 동작시킵니다.
-
-> telnet 192.168.0.208 9090 
-
-// 접속 후 아래와 같이 메시지 나옴
-Hello PHPoC Shield for Arduino!!
-Hello PHPoC Shield for Arduino!!
-Hello PHPoC Shield for Arduino!!
-Hello PHPoC Shield for Arduino!!
-Hello PHPoC Shield for Arduino!!
-...
-
-```
-
-파이썬에서 위의 값이 넘어옴
 
   
 - ~~컴파일시 결과~~
