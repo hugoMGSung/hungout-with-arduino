@@ -44,8 +44,25 @@
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield03.jpg" width="900" alt="상단설정">
 
+여기 설정에서는 Station을 아래와 같이 변경함
+
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield04.jpg" width="900" alt="하단설정">
 
+필요한 설정 - Station의 DHCP 대신 아이피 설정, Network Setting의 Socket Type, Remote IP (Station IP Address와 동일하게 설정), Local Port 9000 -> 9090 등 빈번호로 설정
+
+- 쉴드의 스위치를 ON 해야 데이터가 넘어옴
+
+<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield05.jpg" width="900" alt="하단설정">
+
+- 작업순서
+	- 기본 아두이노 소스 코딩
+	- 서버측 파이썬 코딩
+	
+```
+기본소스를 업로드 한 뒤 와이파이 실드를 연결하고 설정된 대로 동작시킵니다.
+
+```
+  
 - ~~컴파일시 결과~~
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield01.jpg" width="600" alt="컴파일 결과">
