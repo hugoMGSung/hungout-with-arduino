@@ -71,7 +71,7 @@
 - 연결방법 - 실드 연결 후 동글이 삽입(기존 동글이가 있어야 함)
 
 ## 1Channel Relay 
-[링크]()
+[링크](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/Relay1Ch_Test)
 
 ## SmartHome 키트 클로닝
 [SmartHome Kit](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/SmartHomeDIY)
