@@ -8,5 +8,6 @@
 
 
 ## 12V 연결
+- 12V 어댑터 (-)는 팬 (-), (+)는 릴레이 COM에 연결, NO를 팬(+) 연결하면 동작
 
-Next
+<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/1ch_relay_03.gif" width="700" alt="릴레이실행">
