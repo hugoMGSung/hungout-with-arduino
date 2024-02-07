@@ -78,8 +78,17 @@
 
 ## Arduino R4 Wifi 테스트
 
-[Getting Started with UNO R4 WiFi](https://docs.arduino.cc/tutorials/uno-r4-wifi/r4-wifi-getting-started/)
+- [Getting Started with UNO R4 WiFi](https://docs.arduino.cc/tutorials/uno-r4-wifi/r4-wifi-getting-started/)
 
-공식 사이트에 있는 Tetris Animation Sketch 테스트
+	- 공식 사이트에 있는 Tetris Animation Sketch 테스트
+	
+	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_first.gif" width="600" alt="실행 결과">
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_first.gif" width="600" alt="실행 결과">
+- [RTC 테스트](https://docs.arduino.cc/tutorials/uno-r4-wifi/rtc/)
+
+	- 공식 사이트 제공
+	
+	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_rtc.png" width="600" alt="실행 결과">
+	
+
+	
