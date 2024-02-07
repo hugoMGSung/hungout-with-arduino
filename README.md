@@ -75,3 +75,11 @@
 
 ## SmartHome 키트 클로닝
 [SmartHome Kit](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/SmartHomeDIY)
+
+## Arduino R4 Wifi 테스트
+
+[Getting Started with UNO R4 WiFi](https://docs.arduino.cc/tutorials/uno-r4-wifi/r4-wifi-getting-started/)
+
+공식 사이트에 있는 Tetris Animation Sketch 테스트
+
+<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/R4Wifi_first.gif" width="600" alt="컴파일 결과">
