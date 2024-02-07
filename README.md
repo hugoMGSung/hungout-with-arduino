@@ -82,4 +82,4 @@
 
 공식 사이트에 있는 Tetris Animation Sketch 테스트
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/R4Wifi_first.gif" width="600" alt="컴파일 결과">
+<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_first.gif" width="600" alt="실행 결과">
