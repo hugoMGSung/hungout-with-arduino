@@ -90,5 +90,27 @@
 	
 	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_rtc.png" width="600" alt="실행 결과">
 	
+- [UNO R4 WiFi Network Examples](https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples/)
 
+	- 공식 사이트 제공
+	- 현재 제품을 사용하는 궁극적인 목적
+	- WifiS3 내장 라이브러리 사용
+	
+	[전체소스](https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/WiFiS3/examples/AP_SimpleWebServer/AP_SimpleWebServer.ino)
+	
+	- 현재 Access Point 부터 동작불가. 구글링 결과 
+	[Update the connectivity module firmware on UNO R4 WiFi](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi) 진행 언급함
+	
+	![firmware](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_firmware.png)
+	
+	그래도 안됨
+	
+	
+- [Connect With WPA](https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/WiFiS3/examples/ConnectWithWPA/ConnectWithWPA.ino)
+
+	성공!
+	
+	![WPA](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_WPA.png)
+	
+	
 	
