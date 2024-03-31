@@ -1,0 +1,2 @@
+#define SECRET_SSID "AP-107-1304"
+#define SECRET_PASS "6244?e81"

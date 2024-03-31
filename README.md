@@ -112,5 +112,20 @@
 	
 	![WPA](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_WPA.png)
 	
+	아두이노의 MAC 주소를 확인해둬야 함 (현재, 48:27:E2:E6:53:18) 
 	
 	
+- [Scan Networks](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/WiFiS3/examples/ScanNetworks)
+
+	아래의 메시지가 10초에 한번씩 출력
+	
+	```shell
+	SSID: san302
+	BSSID: 70:5D:CC:E9:CF:32
+	신호강도 (RSSI):-46
+	암호화 타입:2
+	```
+	
+- [Simple Webserver](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/WiFiS3/examples/SimpleWebServerWiFi)
+	
+	ping 연결은 되는데 웹브라우저 연결안됨. 아두이노를 클라이언트로 서버에 연결하도록 해야할 듯
