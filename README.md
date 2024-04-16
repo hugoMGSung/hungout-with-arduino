@@ -76,6 +76,9 @@
 ## SmartHome 키트 클로닝
 [SmartHome Kit](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/SmartHomeDIY)
 
+- 문제: 현재 SmartHome 소스를 Arduino R4 Wifi에서 동작시키면 avr/io.h 문제가 발생. R4에선 R3의 코드 호환 안되는 문제
+- 해결방법: R3 Wifi 호환보드로 변경 예정
+
 ## Arduino R4 Wifi 테스트
 
 - [Getting Started with UNO R4 WiFi](https://docs.arduino.cc/tutorials/uno-r4-wifi/r4-wifi-getting-started/)
