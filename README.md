@@ -132,3 +132,20 @@
 - [Simple Webserver](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/WiFiS3/examples/SimpleWebServerWiFi)
 	
 	ping 연결은 되는데 웹브라우저 연결안됨. 아두이노를 클라이언트로 서버에 연결하도록 해야할 듯
+
+## WeMos D1 R1 Wifi
+- 환경설정 - 추가보드매니저 URL에 
+	- http://arduino.esp8266.com/stable/package_esp8266com_index.json 입력
+	
+	![보드매니저](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu001.png)
+	
+- Wemos_WebServer 
+	- 컴파일 및 업로드 후 
+	- 시리얼 모니터 확인
+	
+	![시리얼모니터](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu002.png)
+	
+	- 웹브라우저에 URL 입력
+	
+	![웹사이트](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu003.png)
+	
