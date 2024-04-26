@@ -34,8 +34,8 @@
 #include <ESP8266mDNS.h>
 
 #ifndef STASSID
-#define STASSID "SK_WiFiGIGA3BA0_2.4G"
-#define STAPSK  "password"
+#define STASSID "HRD301_2G"
+#define STAPSK  "hrd301_2gnet"
 #endif
 
 const char *ssid = STASSID;

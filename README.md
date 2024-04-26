@@ -33,7 +33,7 @@
 	- 예제의 ESP8266Webserver > HelloServer 선택
 
 - 와이파이 설정
-	- DoitWifiConfig 와이파이에 연결
+	- DoitWifi_ESP13 와이파이에 연결
 	- 192.168.4.2, Gateway 192.168.4.1
 	- 브라우저 설정에서 Network Setting 변경			
 	

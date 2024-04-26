@@ -4,9 +4,9 @@
 
 // Update these with values suitable for your network.
 
-const char* ssid = "HRD301_2G";
-const char* password = "hrd301_2gnet";
-const char* mqtt_server = "192.168.1.108"; // "broker.mqtt-dashboard.com";
+const char* ssid = "DIR-815_Wiznet";
+const char* password = "12345678";
+const char* mqtt_server = "broker.mqtt-dashboard.com";
 
 WiFiClient WizFi250Client;
 PubSubClient client(WizFi250Client);
@@ -105,3 +105,4 @@ void loop() {
     client.publish("outTopic", msg);
   }
 }
+

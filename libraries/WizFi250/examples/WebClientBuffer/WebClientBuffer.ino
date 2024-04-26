@@ -1,11 +1,12 @@
 #include <SPI.h>
 #include "WizFi250.h"
 
-char ssid[] = "HRD301_2G";    // your network SSID (name)
-char pass[] = "hrd301_2gnet";          // your network password
-int status = WL_IDLE_STATUS;       // the Wifi radio's status
 
-char server[] = "https://www.arduino.cc/";
+char ssid[] = "DIR-815_Wiznet";         // your network SSID (name)
+char pass[] = "12345678";          // your network password
+int status = WL_IDLE_STATUS;      // the Wifi radio's status
+
+char server[] = "arduino.cc";
 
 // Initialize the Ethernet client object
 WiFiClient client;
@@ -51,13 +52,17 @@ void setup()
     }
 }
 
+
+
 void loop()
 {
+  char test_buff[200]={0,};
+
   // if there are incoming bytes available
   // from the server, read them and print them
   while (client.available()) {
-	  char c = client.read();
-	  Serial.write(c);
+  if( client.read((uint8_t*)test_buff,sizeof(test_buff)-1) >= 0)
+      Serial.print(test_buff);
   }
 
   // if the server's disconnected, stop the client
@@ -88,3 +93,5 @@ void printWifiStatus()
   Serial.print(rssi);
   Serial.println(" dBm");
 }
+
+
