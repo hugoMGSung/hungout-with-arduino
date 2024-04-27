@@ -28,11 +28,6 @@ volatile int _rain; // 수분센서
 #include "LiquidCrystal_SoftI2C.h" // LCD 표시용
 #include "DHT.h"
 
-// 8. MQTT
-#include <SPI.h>
-#include <WizFi250.h>
-#include <PubSubClient.h>
-
 // 0. Default setup
 // 1. Human body recognition lamp 
 int HUMAN_SENSOR = 4;
@@ -51,23 +46,6 @@ int ROOMLIGHT_PIN = 10;
 
 // 7. 공기질에 사용할 LCD 설정
 LiquidCrystal_SoftI2C mylcd(0x27,16,2,7,A0);
-
-// 8. MQTT
-// Update these with values suitable for your network.
-const char* ssid = "SK_WiFiGIGA3BA0_2.4G";
-const char* password = "KAP23@0405";
-// "broker.mqtt-dashboard.com";
-const char* mqtt_server = "192.168.45.190"; // "192.168.45.190"; 
-
-WiFiClient WizFi250Client;
-PubSubClient client(WizFi250Client);
-long lastMsg = 0;
-char msg[50];
-int value = 0;
-
-//void setup_wifi();
-//void callback(char* topic, byte* payload, unsigned int length);
-//void reconnect();
 
 // 3. DHT if it get high temp, turn on the fan
 void setMotor8833(int speedpin,int dirpin, int speed) {
@@ -98,11 +76,6 @@ Buzzer buzzer(buzzerplay.pin1());
 void setup() {
   Serial.begin(115200); // 0.
 
-  // 8. MQTT
-  setup_wifi();
-  client.setServer(mqtt_server, 1883);
-  client.setCallback(callback);
-
   pinMode(HUMAN_SENSOR, INPUT); // 1. 
   pinMode(LAMP_PIN, OUTPUT); // 1.
   pinMode(TOUCH_PIN,INPUT); // 2.
@@ -131,59 +104,6 @@ void setup() {
   mylcd.backlight();
   dhtA0.begin();
   dhtA3.begin();
-}
-
-// 8. MQTT용 함수들
-void setup_wifi() {
-  delay(10);
-  // We start by connecting to a WiFi network
-  Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
-
-  WiFi.init();
-  WiFi.begin((char*)ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
-}
-
-void callback(char* topic, byte* payload, unsigned int length) {
-  Serial.print("Message arrived [");
-  Serial.print(topic);
-  Serial.print("] ");
-  for (int i = 0; i < length; i++) {
-    Serial.print((char)payload[i]);
-  }
-  Serial.println();
-}
-
-void reconnect() {
-  // Loop until we're reconnected
-  while (!client.connected()) {
-    Serial.print("Attempting MQTT connection...");
-    // Attempt to connect
-    if (client.connect("WizFi250Client")) {
-      Serial.println("connected");
-      // Once connected, publish an announcement...
-      client.publish("outTopic", "WizFi250 hello world");
-      // ... and resubscribe
-      client.subscribe("inTopic");
-    } else {
-      Serial.print("failed, rc=");
-      Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
-      delay(5000);
-    }
-  }
 }
 
 void loop() {
