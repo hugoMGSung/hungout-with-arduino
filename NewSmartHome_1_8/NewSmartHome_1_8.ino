@@ -44,6 +44,9 @@ int WINDOW_PIN = 7;
 // 6. Light Control
 int ROOMLIGHT_PIN = 10;
 
+// 8.시리얼포트로 보낼 전체 문자열 
+String strTotalMsg = "";
+
 // 7. 공기질에 사용할 LCD 설정
 LiquidCrystal_SoftI2C mylcd(0x27,16,2,7,A0);
 
@@ -74,7 +77,7 @@ Buzzer mBuzzer = Buzzer(buzzerplay.pin1());
 Buzzer buzzer(buzzerplay.pin1());
 
 void setup() {
-  Serial.begin(115200); // 0.
+  Serial.begin(9600); // 0. Arduino에서 115200으로 해도 9600으로만 반응
 
   pinMode(HUMAN_SENSOR, INPUT); // 1. 
   pinMode(LAMP_PIN, OUTPUT); // 1.
@@ -106,51 +109,69 @@ void setup() {
   dhtA3.begin();
 }
 
+
+
 void loop() {
-  //Serial.println("Welcome to SMARTHOME!"); // 0.
+  Serial.println("Welcome to SMARTHOME!"); // 0.
   //delay(500); // 0.
   // light and display
   _light = analogRead(A2);
   _rain = analogRead(A1); // 7. 수분센서 
   
-  Serial.println(String("T:") + String(dhtA3.readTemperature())); // 3.
-  tm_4display.displayString(_light); // 7. Light Control
-  Serial.print(String(" light:") + String(_light));
-  Serial.print(",");
-  Serial.print(String("rain:") + String(_rain));  
-  Serial.println(",");
+  // Serial.println(String("T:") + String(dhtA3.readTemperature())); // 3.
+  // tm_4display.displayString(_light); // 7. Light Control
+  // Serial.print(String(" light:") + String(_light));
+  // Serial.print(",");
+  // Serial.print(String("rain:") + String(_rain));  
+  // Serial.println(",");
+  strTotalMsg = "";
+  strTotalMsg.concat(String("L:") + String(_light) + "|" + String("R:") + String(_rain) + "|");  
 
   // 7. 온습도
   mylcd.setCursor(0, 0);
   // mylcd.print(String("T:") + String(dhtA3.readTemperature()));
   mylcd.print(String("Hugo's SmartHome"));
   mylcd.setCursor(0, 1);
-  mylcd.print(String(dhtA3.readTemperature()) + String("'C") + String(" | ") + String(dhtA3.readHumidity()) + String("%"));
+  float _temp = dhtA3.readTemperature();
+  float _humid = dhtA3.readHumidity();
+  mylcd.print(String(_temp) + String("'C") + String(" | ") + String(_humid) + String("%"));
+
+  strTotalMsg.concat(String("T:") + String(_temp) + "|" + String("H:") + String(_humid) + "|"); // L R T H
+  
 
   if (dhtA3.readTemperature() > condTemp) {
     setMotor8833(TEMP_PIN, MOTOR_PIN, 100);
-    Serial.println(String("T:Fan On!")); // 3.
+    //Serial.println(String("T:Fan On!")); // 3.
+    strTotalMsg.concat(String("F:ON|"));
   } else {
     setMotor8833(TEMP_PIN, MOTOR_PIN, 0);
+    strTotalMsg.concat(String("F:OFF|")); // L(ight) R(ain) T(emperature) H(umidity) F(an)
   }
 
   if (digitalRead(HUMAN_SENSOR) == 1) { // 1. 
     digitalWrite(LAMP_PIN, HIGH);
-    Serial.println("Someone entered!!");
+    strTotalMsg.concat(String("V:ON|"));
+    //Serial.println("Someone entered!!");
   } else {
     digitalWrite(LAMP_PIN, LOW);
+    strTotalMsg.concat(String("V:OFF|")); // L(ight) R(ain) T(emperature) H(umidity) F(an) V(ulernavility) 
   }
+
+  
 
   if (_light > 50) { 
     digitalWrite(ROOMLIGHT_PIN, HIGH);
+    strTotalMsg.concat(String("RL:OFF|")); // L(ight) R(ain) T(emperature) H(umidity) F(an) V(ulernavility) RL(eal Light)
   } else {
     digitalWrite(ROOMLIGHT_PIN, LOW); // 여기서 켜진다! 이상하다!!
-    Serial.println("Light UP");
+    strTotalMsg.concat(String("RL:ON|")); // L(ight) R(ain) T(emperature) H(umidity) F(an) V(ulernavility) RL(eal Light)
+    // Serial.println("Light UP");
   }
 
   if (_rain < 350) { // 비가 오면
     mBuzzer.bendTones(2000, 2500, 1.05, 20, 8);
-    Serial.println("야, 비온다!!!");
+    //Serial.println("야, 비온다!!!");
+    strTotalMsg.concat(String("RR:ON|")); // L(ight) R(ain) T(emperature) H(umidity) F(an) V(ulernavility) RL(eal Light) RR(eal Rain)
   }
 
   if (digitalRead(TOUCH_PIN)==HIGH) { // 2. 
@@ -158,11 +179,14 @@ void loop() {
     mBuzzer.bendTones(2499, 1500, 1.05, 25, 8); 
     // 4. Servo
     servo_12.write(90);
+    strTotalMsg.concat(String("CB:ON|")); // L(ight) R(ain) T(emperature) H(umidity) F(an) V(ulernavility) RL(eal Light) RR(eal Rain) CB(ChaimBell)
   } else {
     buzzer.noTone();
     servo_12.write(0);
+    strTotalMsg.concat(String("CB:OFF|"));
   }
 
+  Serial.println(String("TEST!!!") + strTotalMsg);
   // 5. Keypad and Window
   // 키패드 입력
 //  item = Read_Key();
@@ -206,5 +230,5 @@ void loop() {
 //    delay(20);
 //  }
 
-  delay(100);
+  delay(500);
 }
