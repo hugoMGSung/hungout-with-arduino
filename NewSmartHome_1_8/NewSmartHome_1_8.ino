@@ -179,14 +179,14 @@ void loop() {
     mBuzzer.bendTones(2499, 1500, 1.05, 25, 8); 
     // 4. Servo
     servo_12.write(90);
-    strTotalMsg.concat(String("CB:ON|")); // L(ight) R(ain) T(emperature) H(umidity) F(an) V(ulernavility) RL(eal Light) RR(eal Rain) CB(ChaimBell)
+    strTotalMsg.concat(String("CB:ON")); // L(ight) R(ain) T(emperature) H(umidity) F(an) V(ulernavility) RL(eal Light) RR(eal Rain) CB(ChaimBell)
   } else {
     buzzer.noTone();
     servo_12.write(0);
-    strTotalMsg.concat(String("CB:OFF|"));
+    strTotalMsg.concat(String("CB:OFF"));
   }
 
-  Serial.println(String("TEST!!!") + strTotalMsg);
+  Serial.println(String("[") + strTotalMsg + String("]"));
   // 5. Keypad and Window
   // 키패드 입력
 //  item = Read_Key();
