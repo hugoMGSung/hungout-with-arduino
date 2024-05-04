@@ -40,6 +40,23 @@
 
 <img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/smarthome04.jpg" width="900" alt="스마트홈 통신">
 
+- 마무리
+	- 자동실행 
+		1. 바탕화면에 쉘 파일 생성, start_smarthome.sh 
+			```shell
+			#!/bin/bash
+
+			python3 /home/pi/Documents/GitHub/hungout-with-arduino/SerialExam/NewSerialArduinoApp.py
+			```
+		2. sh 파일 chmod +x 추가
+		3. /home/pi/.bashrc 맨 아래에 위의 셀 스크립트 실행 명령 추가
+			```shell
+			...
+			fi
+						
+			sudo /home/pi/Desktop/start_smarthome.sh
+			```
+
 ## Day05
 - MQTT 통신
 	- 모니터링 프로그램 제작 및 연동
