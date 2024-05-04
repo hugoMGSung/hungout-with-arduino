@@ -29,7 +29,7 @@
 - MQTT 통신
 	- LCD패널 내용 변경
 
-		<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/smarthome05.jpg" width="900" alt="스마트홈 통신">
+		<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/smarthome05.jpg" width="700" alt="스마트홈패널">
 
 	- LCD패널 텍스트가 USB연결 시만 동작, 파워연결 시에는 동작안함
 		- 해결, 파워 W가 부족해서 생긴현상. 파워어댑터 변경
