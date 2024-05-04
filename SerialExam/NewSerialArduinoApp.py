@@ -13,7 +13,7 @@ ser = serial.Serial(port='/dev/ttyACM0',
 line = ''
 
 dev_id = 'IOT_SH'
-broker_ip = '192.168.45.190'
+broker_ip = '192.168.45.190' # '210.119.12.52'
 mqttc = None 
 
 def on_connect(mqttc, obj, flags, reason_code, properties):
@@ -41,8 +41,21 @@ def readThread(ser):
         line = ser.readline().decode('utf8').rstrip()
         if line.startswith('[') and line.endswith(']'):
             print('FROM ARDU=' + line)
-            mqttc.publish("pknu/sh01/data", line, qos=2)
+            # line을 읽어서 분리
+            baseData = dataToDict(line)
+            # print(baseData)
+            mqttc.publish("pknu/sh01/data", json.dumps(baseData), qos=2)
             line = ''
+
+def dataToDict(line):
+    originData = {}
+    temps = line.replace('[', '').replace(']', '').split('|')
+    # print(type(temps))
+    for item in temps:
+        middles = item.split(':')
+        originData[middles[0]] = middles[1]
+
+    return originData
 
 def main():
     global mqttc
