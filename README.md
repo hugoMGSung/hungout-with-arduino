@@ -148,4 +148,9 @@
 	- 웹브라우저에 URL 입력
 	
 	![웹사이트](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu003.png)
+
+## 블루투스 통신
+- 일반 아두이노에서 진행할 것
+	- Wemos나 Wizfi250 등에서는 제대로 처리안되는 것 확인
+
 	
