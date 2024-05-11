@@ -4,7 +4,8 @@
 
 #include <SoftwareSerial.h>  
 
-SoftwareSerial BTSerial(3, 4);  
+// 블루투스 통신 초기화
+SoftwareSerial BTSerial(3, 4); // BT TX:3, RX:4
 
 #include <Wire.h>                     // i2C 통신을 위한 라이브러리
 #include <LiquidCrystal_I2C.h>        // LCD 2004 I2C용 라이브러리
@@ -29,7 +30,7 @@ int deltaTime = 40;
 
 void setup() {
   Serial.begin(115200);
-  BTSerial.begin(9600); // 블루투스는 바꿔보자.
+  BTSerial.begin(115200); // 블루투스는 바꿔보자.
   
   dht.begin();  // Initialize device.
   //Serial.println(F("DHT11 Unified Sensor Example"));

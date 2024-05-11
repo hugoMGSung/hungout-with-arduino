@@ -162,3 +162,11 @@
 
 	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu007.png" width="550">
 	
+
+## NodeMCU 개발환경 구축
+- Arduino IDE 환경설정에서 
+	- http://arduino.esp8266.com/stable/package_esp8266com_index.json 추가
+
+	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu008.png" width="800">
+
+	
