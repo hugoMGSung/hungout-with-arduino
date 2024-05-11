@@ -153,4 +153,12 @@
 - 일반 아두이노에서 진행할 것
 	- Wemos나 Wizfi250 등에서는 제대로 처리안되는 것 확인
 
+- HC-06 블루투스 이름변경
+	- Bluetooth_Exam 소스를 업로드 후 시리얼모니터에서 line ending 없음으로, 9600보드레이트로 설정
+	- AT를 입력하면 OK 리턴
+	- 명령줄에 AT+NAME**HugoDustBT** 등으로 변경
+
+	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu006.png" width="700">
+
+	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu007.png" width="550">
 	
