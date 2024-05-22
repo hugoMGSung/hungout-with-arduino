@@ -169,4 +169,9 @@
 
 	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu008.png" width="800">
 
+## Arduino Nano 확장실드 예제
+- Arduino Nano
+	- Adafruit Motor Library
+	- LiquidCrystal I2C 설치
+
 	
