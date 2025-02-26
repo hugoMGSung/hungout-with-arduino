@@ -6,7 +6,7 @@ void setup() {
   Serial.begin(9600);
 
   pinMode(buzzer, OUTPUT);
-  pinMode(switch1, INPUT);
+  pinMode(switch1, INPUT_PULLUP);
 }
 
 void loop() {
