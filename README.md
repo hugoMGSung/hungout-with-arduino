@@ -1,9 +1,15 @@
 # 아두이노 가지고 놀기
 
 ## LCD Keypad Shield
+
+<img src='./images/ardu010.png' width='600'>
+
 [LCD Keypad](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/LCDKeypad)
 
 ## Seeeduino 보드
+
+<img src='./images/ardu009.png' width='500'>
+
 [Seeeduino](https://wiki.seeedstudio.com/Seeed_Arduino_Boards/)
 - 연결방법
 	- Arduino IDE, Add BoardManager URL 추가
@@ -12,6 +18,8 @@
 	- Arduino IDE v2에서는 실패, 구버전 설치완료
 
 ## 3.5" TFT LCD Shield
+
+<img src='./images/ardu014.png' width='500'>
 [TFT](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/TFT_LCD_Test)
 
 - 연결방법
@@ -21,6 +29,8 @@
 		
 	
 ## ESP13 Shield
+
+<img src='./images/ardu011.png' width='500'>
 [참조경로](https://blog.naver.com/roboholic84/221139049600)
 [깃헙소스](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/WifiShield_Test)
 
@@ -37,26 +47,26 @@
 	- 192.168.4.2, Gateway 192.168.4.1
 	- 브라우저 설정에서 Network Setting 변경			
 	
-<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield02.jpg" width="500" alt="열결초기">
+<img src='./images/esp8266_shield02.jpg' width="500" alt="열결초기">
 
 192.168.4.1 접속 브라우저
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield03.jpg" width="900" alt="상단설정">
+<img src="./images/esp8266_shield03.jpg" width="700" alt="상단설정">
 
 여기 설정에서는 Station을 아래와 같이 변경함
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield06.jpg" width="900" alt="하단설정">
+<img src="./images/esp8266_shield06.jpg" width="700" alt="하단설정">
 
 필요한 설정 - Station의 DHCP 대신 아이피 설정, Network Setting의 Socket Type, Remote IP (Station IP Address와 동일하게 설정), Local Port 9000 -> 9090 등 빈번호로 설정
 
 - 쉴드의 스위치를 ON 해야 데이터가 넘어옴
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield05.jpg" width="900" alt="하단설정">
+<img src="./images/esp8266_shield05.jpg" width="700" alt="하단설정">
 
   
 - ~~컴파일시 결과~~
 
-<img src="https://raw.githubusercontent.com/hugoMGSung/study-smarthome/main/images/esp8266_shield01.jpg" width="600" alt="컴파일 결과">
+<img src="./images/esp8266_shield01.jpg" width="600" alt="컴파일 결과">
 
 ~~현재 A fatal esptool.py error occurred: Failed to connect to ESP8266: Timed out waiting for packet header 라는 오류로 업로드는 성공했지만 나머지는 실패~~
 
@@ -85,13 +95,13 @@
 
 	- 공식 사이트에 있는 Tetris Animation Sketch 테스트
 	
-	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_first.gif" width="600" alt="실행 결과">
+	<img src="./images/R4Wifi_first.gif" width="600" alt="실행 결과">
 
 - [RTC 테스트](https://docs.arduino.cc/tutorials/uno-r4-wifi/rtc/)
 
 	- 공식 사이트 제공
 	
-	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_rtc.png" width="600" alt="실행 결과">
+	<img src="./images/R4Wifi_rtc.png" width="600" alt="실행 결과">
 	
 - [UNO R4 WiFi Network Examples](https://docs.arduino.cc/tutorials/uno-r4-wifi/wifi-examples/)
 
@@ -134,6 +144,9 @@
 	ping 연결은 되는데 웹브라우저 연결안됨. 아두이노를 클라이언트로 서버에 연결하도록 해야할 듯
 
 ## WeMos D1 R1 Wifi
+
+<img src='./images/ardu012.png' width='600'>
+
 - 환경설정 - 추가보드매니저 URL에 
 	- http://arduino.esp8266.com/stable/package_esp8266com_index.json 입력
 	
@@ -158,16 +171,19 @@
 	- AT를 입력하면 OK 리턴
 	- 명령줄에 AT+NAME**HugoDustBT** 등으로 변경
 
-	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu006.png" width="700">
+	<img src="./images/ardu006.png" width="700">
 
-	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu007.png" width="550">
+	<img src="./images/ardu007.png" width="550">
 	
 
 ## NodeMCU 개발환경 구축
+
+<img src='./images/ardu013.png' width='600'>
+
 - Arduino IDE 환경설정에서 
 	- http://arduino.esp8266.com/stable/package_esp8266com_index.json 추가
 
-	<img src="https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu008.png" width="800">
+	<img src="./images/ardu008.png" width="700">
 
 ## Arduino Nano 확장실드 예제
 [참조](https://www.youtube.com/watch?v=4y5BeVZaUKA)
@@ -178,5 +194,8 @@
  	https://github.com/hugoMGSung/hungout-with-arduino/assets/59336331/3239b3fb-8df2-4622-aeec-22fa17139aff
 
 
+## OrangeBoard Wifi
 
+- https://github.com/Wiznet/WizFi250_arduino_library
+	- Arduino IDE에서 라이브러리관리 WizFi250 검색 후 설치
 	
