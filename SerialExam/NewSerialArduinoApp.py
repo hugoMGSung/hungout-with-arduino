@@ -11,12 +11,12 @@ ser = serial.Serial(port='/dev/ttyACM0',
                     timeout=1)
 
 line = ''
+
 dev_id = 'IOT_SH'
-broker_ip = '210.119.12.52' # '192.168.45.190' # 
+broker_ip = '192.168.45.190' # '210.119.12.52'
 mqttc = None 
 
-
-def on_connect(client, userdata, flas, reason_code, properties):
+def on_connect(mqttc, obj, flags, reason_code, properties):
     print("reason_code: " + str(reason_code))
 
 
