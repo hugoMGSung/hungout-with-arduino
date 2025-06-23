@@ -76,7 +76,7 @@ void loop() {
   u8g2.setFont(u8g2_font_luBIS08_tf);   // choose a suitable font
   u8g2.drawStr(0,10,"Hello Seeed!");    // write something to the internal memory
   u8g2.drawStr(0,30,"Hello Studio!");    // write something to the internal memory
-  u8g2.drawStr(0,50,"Hello World!");    // write something to the internal memory
+  u8g2.drawStr(0,50,"Hello Hugo!");    // write something to the internal memory
   u8g2.sendBuffer();                    // transfer internal memory to the display
   delay(100);  
 }
