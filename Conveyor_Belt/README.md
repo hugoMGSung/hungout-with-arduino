@@ -12,3 +12,7 @@ https://github.com/user-attachments/assets/68aad358-6f80-446c-918c-338a8d5028ab
 
 ## 에듀이노 컨베이어 벨트
 
+
+
+https://github.com/user-attachments/assets/52cffa9d-d9ae-439c-b11d-6bb9a776d18f
+
