@@ -1,10 +1,10 @@
 /**************************************************************
  * Conveyor + IR + TCS3200 + MQTT (UNO R4 WiFi)
- * - LEFT IR 감지 -> 컨베이어 시작
+ * - LEFT IR 감지 -> 컨베이어 시작 + MQTT Result="START"  // [NEW]
  * - RIGHT IR 도착 -> 정지 -> 1초 대기 -> 컬러 3회 측정
  * - "마지막 측정값"이 Blue면 Result="OK", Red/Orange면 "FAIL", 그 외 "FAIL"
  * - MQTT 토픽: "pknu/sf52/data"
- * - JSON 예: {"ClientID":"IOT01","Timestamp":"2025-08-14 11:55:12","Result":"OK"}
+ * - JSON: {"ClientID":"IOT01","Timestamp":"YYYY-MM-DD HH:MM:SS","Result":"..."}
  **************************************************************/
 
 #include <WiFiS3.h>
@@ -27,9 +27,9 @@ MqttClient mqttClient(wifiClient);
 WiFiUDP ntpUDP;
 const char* NTP_SERVER = "pool.ntp.org";
 const int   NTP_PORT   = 123;
-const long  TZ_OFFSET  = 9 * 3600;      // Asia/Seoul UTC+9
-unsigned long epochAtSync = 0;          // Unix epoch secs at sync
-unsigned long msAtSync    = 0;          // millis() at sync
+const long  TZ_OFFSET  = 9 * 3600; // Asia/Seoul
+unsigned long epochAtSync = 0;
+unsigned long msAtSync    = 0;
 
 bool ntpSyncOnce(unsigned long timeout_ms=2000) {
   byte packet[48]{0};
@@ -48,8 +48,7 @@ bool ntpSyncOnce(unsigned long timeout_ms=2000) {
                            (unsigned long)packet[41] << 16 |
                            (unsigned long)packet[42] << 8  |
                            (unsigned long)packet[43];
-      // NTP epoch (1900) -> Unix epoch (1970)
-      const unsigned long seventyYears = 2208988800UL;
+      const unsigned long seventyYears = 2208988800UL; // 1900->1970
       unsigned long epoch = high - seventyYears;
       epochAtSync = epoch;
       msAtSync = millis();
@@ -65,7 +64,6 @@ unsigned long currentEpoch() {
   return epochAtSync + (millis() - msAtSync) / 1000;
 }
 
-// 간단한 epoch -> YYYY-MM-DD HH:MM:SS (로컬TZ) 변환
 void formatTimestamp(char* out, size_t outsz, unsigned long epoch) {
   unsigned long t = (epoch ? epoch : 0) + TZ_OFFSET;
   unsigned long secs = t % 60; t /= 60;
@@ -73,7 +71,6 @@ void formatTimestamp(char* out, size_t outsz, unsigned long epoch) {
   unsigned long hours = t % 24;
   unsigned long days = t / 24;
 
-  // Howard Hinnant's civil_from_days 변형 (1970-01-01 기준)
   long z = (long)days + 719468;
   long era = (z >= 0 ? z : z - 146096) / 146097;
   unsigned doe = (unsigned)(z - era * 146097);
@@ -116,11 +113,11 @@ const int SAME_PCT = 12;                  // RGB 주기가 12% 이내면 White/G
 enum State { IDLE, RUNNING, COLOR_WAIT, COLOR_MEASURE } state = IDLE;
 unsigned long startedAt = 0;
 unsigned long senseStartAt = 0;
-bool prevLeft  = false;
+bool prevLeft  = false;   // ← 전역에서 관리 (중복 선언 제거)
 bool prevRight = false;
 int  sampleDone = 0;
 int  votes[6] = {0,0,0,0,0,0}; // 0:Unknown,1:R,2:G,3:B,4:W/G,5:Black
-int  lastSampleCode = 0;       // "마지막 측정값" 저장용
+int  lastSampleCode = 0;       // "마지막 측정값"
 
 /*** ====== Conveyor Utils ====== ***/
 void startConveyor() {
@@ -214,19 +211,34 @@ void mqttPublish(const char* topic, const char* payload) {
   mqttClient.endMessage();
 }
 
-/*** ====== Publish Result ====== ***/
+/*** ====== Publish Helpers ====== ***/
 void publishFinalResult(int lastCode) {
-  // 규칙: 마지막 측정값이 Blue=OK, Red/Orange=FAIL, 그 외=FAIL
   const char* result = (lastCode == 3) ? "OK" : ((lastCode == 1) ? "FAIL" : "FAIL");
 
   char ts[24]; ts[0] = '\0';
   unsigned long nowEpoch = currentEpoch();
-  formatTimestamp(ts, sizeof(ts), nowEpoch); // NTP 실패 시 1970-01-01 09:00:00 형태
+  formatTimestamp(ts, sizeof(ts), nowEpoch);
 
   char json[160];
   snprintf(json, sizeof(json),
            "{\"ClientID\":\"%s\",\"Timestamp\":\"%s\",\"Result\":\"%s\"}",
            CLIENT_ID, ts, result);
+
+  mqttPublish(MQTT_TOPIC, json);
+  Serial.print(F("MQTT PUB -> ")); Serial.print(MQTT_TOPIC);
+  Serial.print(F(" : ")); Serial.println(json);
+}
+
+// START 이벤트 발행  // [NEW]
+void publishStartEvent() {
+  char ts[24]; ts[0] = '\0';
+  unsigned long nowEpoch = currentEpoch();
+  formatTimestamp(ts, sizeof(ts), nowEpoch);
+
+  char json[160];
+  snprintf(json, sizeof(json),
+           "{\"ClientID\":\"%s\",\"Timestamp\":\"%s\",\"Result\":\"START\"}",
+           CLIENT_ID, ts);
 
   mqttPublish(MQTT_TOPIC, json);
   Serial.print(F("MQTT PUB -> ")); Serial.print(MQTT_TOPIC);
@@ -251,7 +263,7 @@ void setup() {
   pinMode(S0, OUTPUT); pinMode(S1, OUTPUT);
   pinMode(S2, OUTPUT); pinMode(S3, OUTPUT);
   pinMode(OUT_PIN, INPUT);
-  setScale20();                  // 20%
+  setScale20(); // 20%
 
   // WiFi / MQTT / NTP
   connectWiFi();
@@ -260,7 +272,7 @@ void setup() {
     char ts[24]; formatTimestamp(ts, sizeof(ts), currentEpoch());
     Serial.print(F("NTP synced: ")); Serial.println(ts);
   } else {
-    Serial.println(F("NTP sync failed (will still publish with base time)."));
+    Serial.println(F("NTP sync failed (will still publish)."));
   }
 }
 
@@ -276,13 +288,16 @@ void loop() {
   bool right = (digitalRead(IR_RIGHT) == LOW);
 
   // 에지 검출
-  static bool prevLeft=false, prevRight=false;
   bool leftEdge  = left  && !prevLeft;
   bool rightEdge = right && !prevRight;
 
   switch (state) {
     case IDLE:
-      if (leftEdge) { startConveyor(); state = RUNNING; }
+      if (leftEdge) {
+        startConveyor();
+        publishStartEvent();  // ← START 메시지 발행  // [NEW]
+        state = RUNNING;
+      }
       break;
 
     case RUNNING:
@@ -313,7 +328,7 @@ void loop() {
         unsigned long pR,pG,pB;
         int code = classifyOnce(pR,pG,pB);
         votes[code]++;
-        lastSampleCode = code; // ← "마지막 측정값" 저장
+        lastSampleCode = code; // 마지막 측정값 저장
 
         Serial.print(F("Sample ")); Serial.print(sampleDone+1);
         Serial.print(F("  Period(us) R:")); Serial.print(pR);
@@ -323,7 +338,7 @@ void loop() {
 
         sampleDone++;
       } else {
-        // 다수결(참고용 로그)
+        // 다수결(참고 로그)
         int bestCode = 0, bestCnt = -1;
         for (int i=0;i<6;i++){
           if (votes[i] > bestCnt) { bestCnt = votes[i]; bestCode = i; }
@@ -331,7 +346,7 @@ void loop() {
         Serial.print(F("FINAL COLOR (vote): "));
         Serial.println(labelName(bestCode));
 
-        // MQTT로 마지막 측정 결과 여부 발행
+        // 마지막 측정 결과로 MQTT 발행
         publishFinalResult(lastSampleCode);
 
         state = IDLE;  // 다음 물체 대기
