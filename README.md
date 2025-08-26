@@ -82,6 +82,11 @@
 
 
 
+
+https://github.com/user-attachments/assets/acd1ebcd-71a7-49b4-9a70-f0e66f4825a8
+
+
+
 ## 3.5" TFT LCD Shield
 
 <img src='./images/ardu014.png' width='500'>
