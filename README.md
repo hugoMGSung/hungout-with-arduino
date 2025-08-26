@@ -4,7 +4,7 @@
 
 <img src='./images/ardu010.png' width='600'>
 
-[LCD Keypad](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/LCDKeypad)
+[LCD Keypad](./ArduinoR3_Uno/LCDKeypad/LCDKeypad.ino)
 
 ## Seeeduino 보드
 
@@ -176,7 +176,7 @@ https://github.com/user-attachments/assets/1aab1fca-d6e7-4885-a54c-2fe6ec6e8903
 [링크](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/Relay1Ch_Test)
 
 ## SmartHome 키트 클로닝
-[SmartHome Kit](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/SmartHomeDIY)
+[SmartHome Kit](./SmartHomeDIY)
 
 - 문제: 현재 SmartHome 소스를 Arduino R4 Wifi에서 동작시키면 avr/io.h 문제가 발생. R4에선 R3의 코드 호환 안되는 문제
 - 해결방법: R3 Wifi 호환보드로 변경 예정
@@ -206,7 +206,7 @@ https://github.com/user-attachments/assets/1aab1fca-d6e7-4885-a54c-2fe6ec6e8903
 	- 현재 Access Point 부터 동작불가. 구글링 결과 
 	[Update the connectivity module firmware on UNO R4 WiFi](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi) 진행 언급함
 	
-	![firmware](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_firmware.png)
+	![firmware](./images/R4Wifi_firmware.png)
 	
 	그래도 안됨
 	
@@ -215,7 +215,7 @@ https://github.com/user-attachments/assets/1aab1fca-d6e7-4885-a54c-2fe6ec6e8903
 
 	성공!
 	
-	![WPA](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/R4Wifi_WPA.png)
+	![WPA](./images/R4Wifi_WPA.png)
 	
 	아두이노의 MAC 주소를 확인해둬야 함 (현재, 48:27:E2:E6:53:18) 
 	
@@ -242,17 +242,17 @@ https://github.com/user-attachments/assets/1aab1fca-d6e7-4885-a54c-2fe6ec6e8903
 - 환경설정 - 추가보드매니저 URL에 
 	- http://arduino.esp8266.com/stable/package_esp8266com_index.json 입력
 	
-	![보드매니저](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu001.png)
+	![보드매니저](./images/ardu001.png)
 	
 - Wemos_WebServer 
 	- 컴파일 및 업로드 후 
 	- 시리얼 모니터 확인
 	
-	![시리얼모니터](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu002.png)
+	![시리얼모니터](./images/ardu002.png)
 	
 	- 웹브라우저에 URL 입력
 	
-	![웹사이트](https://raw.githubusercontent.com/hugoMGSung/hungout-with-arduino/main/images/ardu003.png)
+	![웹사이트](./images/ardu003.png)
 
 ## 블루투스 통신
 - 일반 아두이노에서 진행할 것
@@ -291,3 +291,8 @@ https://github.com/user-attachments/assets/1aab1fca-d6e7-4885-a54c-2fe6ec6e8903
 - https://github.com/Wiznet/WizFi250_arduino_library
 	- Arduino IDE에서 라이브러리관리 WizFi250 검색 후 설치
 	
+
+## Arduino Nano + Extenstion Sheild
+
+<img src="./images/ardu0011.jpg" width="700">
+
