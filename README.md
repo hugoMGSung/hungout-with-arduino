@@ -42,17 +42,12 @@
 - Seeed Studio에서 만든 Grove 시스템용 확장 보드 → 다양한 Grove 센서를 쉽게 연결 도와줌
 - 낱개의 센서를 브레드보드 + 점퍼선으로 일일이 배선할 필요 없이, Grove 규격 케이블(4핀)만 꽂으면 바로 쓸 수 있는 허브 역할
 
+## Grove Sensor Kit
 
+<img src="./images/ardu0006.jpg" width="600">
 
-## 3.5" TFT LCD Shield
+- 버튼, 부저, 엑셀러레이터, 온습도센서, OLED Display
 
-<img src='./images/ardu014.png' width='500'>
-[TFT](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/TFT_LCD_Test)
-
-- 연결방법
-	- 아래 링크에서 압축다운로드
-		- [library](http://www.lcdwiki.com/res/Program/Arduino/3.5inch/UNO_8BIT_ILI9486_MAR3501_V1.1/3.5inch_Arduino_8BIT_Module_ILI9486_MAR3501_V1.1.zip)
-	- 스케지 > 라이브러리 포함하기 > .ZIP 라이브러리 추가
 
 ### Sample Source
 - 부저와 버튼을 사용한 간단 예제
@@ -62,6 +57,41 @@
 ### Grove – 3-Axis Digital Accelerometer (±16g)(칩셋: ADXL345, I²C)
 - Seeed Base Shield의 I2C 포트(흰색, SDA/SCL) 연결
 - 값(X/Y/Z, g 단위)과 간단한 기울기(roll/pitch)를 출력
+
+[소스](./SeedStudioShield/Grove_Accelerometer/Grove_Accelerometer.ino)
+
+<img src="./images/ardu0005.jpg" width="600">
+
+### Grove – Barometer Sensor (BME280)
+
+<img src="./images/ardu0010.jpg" width="600">
+
+
+- I²C/ SPI 지원, 기본 I²C 주소 0x76
+- Library Manager에서 `Adafruit BME280 Library` 설치
+- 의존성 `Adafruit Unified Sensor` 자동 설치 OK
+
+<img src="./images/ardu0009.jpg" width="600">
+
+
+### Grove – OLED Display 128×64
+
+- Arduino IDE → Library Manager에서 `U8g2` 설치
+
+
+
+
+## 3.5" TFT LCD Shield
+
+<img src='./images/ardu014.png' width='500'>
+
+[TFT](https://github.com/hugoMGSung/hungout-with-arduino/tree/main/TFT_LCD_Test)
+
+- 연결방법
+	- 아래 링크에서 압축다운로드
+		- [library](http://www.lcdwiki.com/res/Program/Arduino/3.5inch/UNO_8BIT_ILI9486_MAR3501_V1.1/3.5inch_Arduino_8BIT_Module_ILI9486_MAR3501_V1.1.zip)
+	- 스케지 > 라이브러리 포함하기 > .ZIP 라이브러리 추가
+
 
 
 
