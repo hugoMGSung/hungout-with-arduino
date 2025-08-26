@@ -12,10 +12,37 @@
 
 [Seeeduino](https://wiki.seeedstudio.com/Seeed_Arduino_Boards/)
 - 연결방법
+	- https://wiki.seeedstudio.com/Seeeduino_v4.2 에서 드라이버 다운로드 후 설치
+
+		<img src="./images/ardu0001.jpg" width="500">
+
 	- Arduino IDE, Add BoardManager URL 추가
-		- https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_legacy_seeeduino_boards_index.json
-	- 보드매니저 'Seeeduino Stalker V3' 검색 후 설치
-	- Arduino IDE v2에서는 실패, 구버전 설치완료
+		- ~~https://raw.githubusercontent.com/Seeed-Studio/Seeed_Platform/master/package_legacy_seeeduino_boards_index.json~~
+		- https://files.seeedstudio.com/arduino/package_seeeduino_boards_index.json 로 변경
+	- 보드매니저 'Seeeduino AVR' 검색 후 설치
+	- Arduino IDE v2에서 성공 확인
+
+		<img src="./images/ardu0002.jpg" width="500">
+
+	- [참조링크](https://www.hackster.io/infoelectorials/project-008-seeeduino-v4-2-setup-169685)
+
+### Seeeduino 예제
+1. 기본 Blink 동일 동작
+
+	<img src="./images/ardu0003.jpg" width="500">
+
+
+## Seeed Studio Base Shield v2.1
+
+<img src="./images/ardu0004.jpg" width="500">
+
+[Seed_Base_Shield](https://wiki.seeedstudio.com/Base_Shield_V2/)
+
+- Arduino 호환 보드 (예: Uno, Seeeduino) 위에 꽂아서 사용하는 쉴드(Shield)
+- Seeed Studio에서 만든 Grove 시스템용 확장 보드 → 다양한 Grove 센서를 쉽게 연결 도와줌
+- 낱개의 센서를 브레드보드 + 점퍼선으로 일일이 배선할 필요 없이, Grove 규격 케이블(4핀)만 꽂으면 바로 쓸 수 있는 허브 역할
+
+
 
 ## 3.5" TFT LCD Shield
 
@@ -26,7 +53,9 @@
 	- 아래 링크에서 압축다운로드
 		- [library](http://www.lcdwiki.com/res/Program/Arduino/3.5inch/UNO_8BIT_ILI9486_MAR3501_V1.1/3.5inch_Arduino_8BIT_Module_ILI9486_MAR3501_V1.1.zip)
 	- 스케지 > 라이브러리 포함하기 > .ZIP 라이브러리 추가
-		
+
+### Sample Source
+- 부저와 버튼을 사용한 간단 예제
 	
 ## ESP13 Shield
 
