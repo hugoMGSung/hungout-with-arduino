@@ -86,6 +86,20 @@
 https://github.com/user-attachments/assets/acd1ebcd-71a7-49b4-9a70-f0e66f4825a8
 
 
+### Crowtail – LED Bar v2.0
+
+<img src="./images/ardu0007.jpg" width="600">
+
+- Seeed의 Grove LED Bar와 같은 방식(2-선 CLK/DATA + VCC/GND, 드라이버 IC)이라 같은 라이브러리로 동작
+- Arduino IDE → Library Manager에서 `Grove LED Bar`(Seeed Studio) 설치
+
+[소스]()
+
+동영상
+
+
+
+
 
 ## 3.5" TFT LCD Shield
 
