@@ -292,7 +292,17 @@ https://github.com/user-attachments/assets/1aab1fca-d6e7-4885-a54c-2fe6ec6e8903
 	- Arduino IDE에서 라이브러리관리 WizFi250 검색 후 설치
 	
 
-## Arduino Nano + Extenstion Sheild
+## Arduino Nano + Funduino 006 V3 Sheild
 
 <img src="./images/ardu0011.jpg" width="700">
+
+
+### Funduino Sheild
+
+<img src="./images/ardu0012.jpg" width="700">
+
+### 서보모터 동작 확인
+
+[소스]()
+
 
