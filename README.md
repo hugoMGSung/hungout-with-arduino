@@ -56,6 +56,15 @@
 
 ### Sample Source
 - 부저와 버튼을 사용한 간단 예제
+
+[소스](./SeedStudioShield/GetStarted/GetStarted.ino)
+
+### Grove – 3-Axis Digital Accelerometer (±16g)(칩셋: ADXL345, I²C)
+- Seeed Base Shield의 I2C 포트(흰색, SDA/SCL) 연결
+- 값(X/Y/Z, g 단위)과 간단한 기울기(roll/pitch)를 출력
+
+
+
 	
 ## ESP13 Shield
 
